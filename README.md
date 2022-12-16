@@ -1,7 +1,7 @@
 # spring-cloud-stream-example-binder
 
 
-Basically we're not tied anymore to the message broker using 
+Basically we're not tied anymore to the message broker leveraging on the spring-cloud-stream dependency 
 
 ![delegating-filter-proxy](./multiple_brokers.png)
 
