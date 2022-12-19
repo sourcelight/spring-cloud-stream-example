@@ -34,4 +34,23 @@ In the java classes **@EnableBinding(Source.class)** stands for the publisher an
 > kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic queue-test
 
 
-References: https://www.youtube.com/watch?v=1IgvFlyEPkY 
+References: https://hub.docker.com/r/bitnami/kafka
+
+References: https://www.youtube.com/watch?v=1IgvFlyEPkY
+
+
+
+## Running Kafka on docker:
+
+```
+curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/kafka/docker-compose.yml > docker-compose.yml
+docker-compose up -d
+docker ps 
+docker exec -it "ID_KAFKA_CONTAINER" bash
+#in case would be necessary to find the right folder
+find . -name "kafka-topics*"
+cd /opt/bitnami/kafka/bin/
+#Create a topic, note that in the last kafka version zookeeper option is deprecated ! use instead "bootstrap-server"
+./kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 -topic queue-test
+./kafka-topics.sh --list --bootstrap-server localhost:9092
+```
